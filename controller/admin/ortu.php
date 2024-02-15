@@ -1,43 +1,42 @@
-<?php 
-	
-	session_start();
-	include("../../config/connection.php");
+<?php
 
-	// Tambah Data
-	if (isset($_POST['tambahData'])) {
-		//Peserta
-		$peserta 					= mysqli_real_escape_string($conn, $_POST['peserta']); 
-		// Data Ayah
-		$nama_ayah 					= mysqli_real_escape_string($conn, $_POST['nama_ayah']); 
-		$status_ayah 				= mysqli_real_escape_string($conn, $_POST['status_ayah']); 
-		$tanggal_lahir_ayah 		= mysqli_real_escape_string($conn, $_POST['tanggal_lahir_ayah']); 
-		$telepon_ayah				= mysqli_real_escape_string($conn, $_POST['telepon_ayah']); 
-		$pendidikan_terakhir_ayah	= mysqli_real_escape_string($conn, $_POST['pendidikan_terakhir_ayah']); 
-		$pekerjaan_ayah				= mysqli_real_escape_string($conn, $_POST['pekerjaan_ayah']); 
-		$penghasilan_ayah			= mysqli_real_escape_string($conn, $_POST['penghasilan_ayah']); 
-		$alamat_ayah				= mysqli_real_escape_string($conn, $_POST['alamat_ayah']); 
-		// Data Ibu
-		$nama_ibu 					= mysqli_real_escape_string($conn, $_POST['nama_ibu']); 
-		$status_ibu 				= mysqli_real_escape_string($conn, $_POST['status_ibu']); 
-		$tanggal_lahir_ibu 			= mysqli_real_escape_string($conn, $_POST['tanggal_lahir_ibu']); 
-		$telepon_ibu				= mysqli_real_escape_string($conn, $_POST['telepon_ibu']); 
-		$pendidikan_terakhir_ibu	= mysqli_real_escape_string($conn, $_POST['pendidikan_terakhir_ibu']); 
-		$pekerjaan_ibu				= mysqli_real_escape_string($conn, $_POST['pekerjaan_ibu']); 
-		$penghasilan_ibu			= mysqli_real_escape_string($conn, $_POST['penghasilan_ibu']); 
-		$alamat_ibu					= mysqli_real_escape_string($conn, $_POST['alamat_ibu']); 
-		// Data Wali
-		$nama_wali 					= mysqli_real_escape_string($conn, $_POST['nama_wali']); 
-		$status_wali 				= mysqli_real_escape_string($conn, $_POST['status_wali']); 
-		$tanggal_lahir_wali 		= mysqli_real_escape_string($conn, $_POST['tanggal_lahir_wali']); 
-		$telepon_wali				= mysqli_real_escape_string($conn, $_POST['telepon_wali']); 
-		$pendidikan_terakhir_wali	= mysqli_real_escape_string($conn, $_POST['pendidikan_terakhir_wali']); 
-		$pekerjaan_wali				= mysqli_real_escape_string($conn, $_POST['pekerjaan_wali']); 
-		$penghasilan_wali			= mysqli_real_escape_string($conn, $_POST['penghasilan_wali']); 
-		$alamat_wali				= mysqli_real_escape_string($conn, $_POST['alamat_wali']); 
-		
-		$tgl_buat 					= date('Y-m-d H:i:s');
+session_start();
+include("../../config/connection.php");
 
-		$query = mysqli_query($conn, "INSERT INTO orang_tua_wali SET Id_Identitas_Siswa = '$peserta',
+// Tambah Data
+if (isset($_POST['tambahData'])) {
+    //Peserta
+    $peserta                     = mysqli_real_escape_string($conn, $_POST['peserta']);
+    // Data Ayah
+    $nama_ayah                     = mysqli_real_escape_string($conn, $_POST['nama_ayah']);
+    $status_ayah                 = mysqli_real_escape_string($conn, $_POST['status_ayah']);
+    $tanggal_lahir_ayah         = mysqli_real_escape_string($conn, $_POST['tanggal_lahir_ayah']);
+    $telepon_ayah                = mysqli_real_escape_string($conn, $_POST['telepon_ayah']);
+    $pendidikan_terakhir_ayah    = mysqli_real_escape_string($conn, $_POST['pendidikan_terakhir_ayah']);
+    $pekerjaan_ayah                = mysqli_real_escape_string($conn, $_POST['pekerjaan_ayah']);
+    $penghasilan_ayah            = mysqli_real_escape_string($conn, $_POST['penghasilan_ayah']);
+    $alamat_ayah                = mysqli_real_escape_string($conn, $_POST['alamat_ayah']);
+    // Data Ibu
+    $nama_ibu                     = mysqli_real_escape_string($conn, $_POST['nama_ibu']);
+    $status_ibu                 = mysqli_real_escape_string($conn, $_POST['status_ibu']);
+    $tanggal_lahir_ibu             = mysqli_real_escape_string($conn, $_POST['tanggal_lahir_ibu']);
+    $telepon_ibu                = mysqli_real_escape_string($conn, $_POST['telepon_ibu']);
+    $pendidikan_terakhir_ibu    = mysqli_real_escape_string($conn, $_POST['pendidikan_terakhir_ibu']);
+    $pekerjaan_ibu                = mysqli_real_escape_string($conn, $_POST['pekerjaan_ibu']);
+    $penghasilan_ibu            = mysqli_real_escape_string($conn, $_POST['penghasilan_ibu']);
+    $alamat_ibu                    = mysqli_real_escape_string($conn, $_POST['alamat_ibu']);
+    // Data Wali
+    $nama_wali                     = mysqli_real_escape_string($conn, $_POST['nama_wali']);
+    $status_wali                 = mysqli_real_escape_string($conn, $_POST['status_wali']);
+    $tanggal_lahir_wali         = mysqli_real_escape_string($conn, $_POST['tanggal_lahir_wali']);
+    $telepon_wali                = mysqli_real_escape_string($conn, $_POST['telepon_wali']);
+    $pendidikan_terakhir_wali    = mysqli_real_escape_string($conn, $_POST['pendidikan_terakhir_wali']);
+    $pekerjaan_wali                = mysqli_real_escape_string($conn, $_POST['pekerjaan_wali']);
+    $penghasilan_wali            = mysqli_real_escape_string($conn, $_POST['penghasilan_wali']);
+    $alamat_wali                = mysqli_real_escape_string($conn, $_POST['alamat_wali']);
+    $tgl_buat                     = date('Y-m-d');
+
+    $query = mysqli_query($conn, "INSERT INTO orang_tua_wali SET Id_Identitas_Siswa = '$peserta',
 																	  Nama_Ayah = '$nama_ayah',
 																	  Status_Ayah = '$status_ayah',
 																	  Tgl_Lahir_Ayah = '$tanggal_lahir_ayah',
@@ -64,8 +63,8 @@
 																	  Alamat_Wali = '$alamat_wali',
 																	  tgl_buat = '$tgl_buat' ");
 
-		if($query) {
-			$_SESSION['alert'] = '<div class="alert alert-success alert-has-icon" id="alert">
+    if ($query) {
+        $_SESSION['alert'] = '<div class="alert alert-success alert-has-icon" id="alert">
 			                        <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
 			                        <div class="alert-body">
 			                          <button class="close" data-dismiss="alert">
@@ -75,9 +74,9 @@
 			                          Data berhasil ditambahkan.
 			                        </div>
 			                      </div>';
-			header('Location: ../../view/ortu/tampilData.php');
-		} else {
-			$_SESSION['alert'] = '<div class="alert alert-danger alert-has-icon" id="alert">
+        header('Location: ../../view/ortu/tampilData.php');
+    } else {
+        $_SESSION['alert'] = '<div class="alert alert-danger alert-has-icon" id="alert">
 			                        <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
 			                        <div class="alert-body">
 			                          <button class="close" data-dismiss="alert">
@@ -87,44 +86,45 @@
 			                          Data gagal ditambahkan.
 			                        </div>
 			                      </div>';
-			header('Location: ../../view/ortu/tampilData.php'); 
-		}
-	}
+        header('Location: ../../view/ortu/tampilData.php');
+    }
+}
 
-	// Ubah Data
-	if (isset($_POST['ubahData'])) {
-		$id = $_POST['id'];
-		//Peserta
-		$peserta 					= mysqli_real_escape_string($conn, $_POST['peserta']); 
-		// Data Ayah
-		$nama_ayah 					= mysqli_real_escape_string($conn, $_POST['nama_ayah']); 
-		$status_ayah 				= mysqli_real_escape_string($conn, $_POST['status_ayah']); 
-		$tanggal_lahir_ayah 		= mysqli_real_escape_string($conn, $_POST['tanggal_lahir_ayah']); 
-		$telepon_ayah				= mysqli_real_escape_string($conn, $_POST['telepon_ayah']); 
-		$pendidikan_terakhir_ayah	= mysqli_real_escape_string($conn, $_POST['pendidikan_terakhir_ayah']); 
-		$pekerjaan_ayah				= mysqli_real_escape_string($conn, $_POST['pekerjaan_ayah']); 
-		$penghasilan_ayah			= mysqli_real_escape_string($conn, $_POST['penghasilan_ayah']); 
-		$alamat_ayah				= mysqli_real_escape_string($conn, $_POST['alamat_ayah']); 
-		// Data Ibu
-		$nama_ibu 					= mysqli_real_escape_string($conn, $_POST['nama_ibu']); 
-		$status_ibu 				= mysqli_real_escape_string($conn, $_POST['status_ibu']); 
-		$tanggal_lahir_ibu 			= mysqli_real_escape_string($conn, $_POST['tanggal_lahir_ibu']); 
-		$telepon_ibu				= mysqli_real_escape_string($conn, $_POST['telepon_ibu']); 
-		$pendidikan_terakhir_ibu	= mysqli_real_escape_string($conn, $_POST['pendidikan_terakhir_ibu']); 
-		$pekerjaan_ibu				= mysqli_real_escape_string($conn, $_POST['pekerjaan_ibu']); 
-		$penghasilan_ibu			= mysqli_real_escape_string($conn, $_POST['penghasilan_ibu']); 
-		$alamat_ibu					= mysqli_real_escape_string($conn, $_POST['alamat_ibu']); 
-		// Data Wali
-		$nama_wali 					= mysqli_real_escape_string($conn, $_POST['nama_wali']); 
-		$status_wali 				= mysqli_real_escape_string($conn, $_POST['status_wali']); 
-		$tanggal_lahir_wali 		= mysqli_real_escape_string($conn, $_POST['tanggal_lahir_wali']); 
-		$telepon_wali				= mysqli_real_escape_string($conn, $_POST['telepon_wali']); 
-		$pendidikan_terakhir_wali	= mysqli_real_escape_string($conn, $_POST['pendidikan_terakhir_wali']); 
-		$pekerjaan_wali				= mysqli_real_escape_string($conn, $_POST['pekerjaan_wali']); 
-		$penghasilan_wali			= mysqli_real_escape_string($conn, $_POST['penghasilan_wali']); 
-		$alamat_wali				= mysqli_real_escape_string($conn, $_POST['alamat_wali']); 
+// Ubah Data
+if (isset($_POST['ubahData'])) {
+    $id = $_POST['id'];
+    //Peserta
+    $peserta                     = mysqli_real_escape_string($conn, $_POST['peserta']);
+    // Data Ayah
+    $nama_ayah                     = mysqli_real_escape_string($conn, $_POST['nama_ayah']);
+    $status_ayah                 = mysqli_real_escape_string($conn, $_POST['status_ayah']);
+    $tanggal_lahir_ayah         = mysqli_real_escape_string($conn, $_POST['tanggal_lahir_ayah']);
+    $telepon_ayah                = mysqli_real_escape_string($conn, $_POST['telepon_ayah']);
+    $pendidikan_terakhir_ayah    = mysqli_real_escape_string($conn, $_POST['pendidikan_terakhir_ayah']);
+    $pekerjaan_ayah                = mysqli_real_escape_string($conn, $_POST['pekerjaan_ayah']);
+    $penghasilan_ayah            = mysqli_real_escape_string($conn, $_POST['penghasilan_ayah']);
+    $alamat_ayah                = mysqli_real_escape_string($conn, $_POST['alamat_ayah']);
+    // Data Ibu
+    $nama_ibu                     = mysqli_real_escape_string($conn, $_POST['nama_ibu']);
+    $status_ibu                 = mysqli_real_escape_string($conn, $_POST['status_ibu']);
+    $tanggal_lahir_ibu             = mysqli_real_escape_string($conn, $_POST['tanggal_lahir_ibu']);
+    $telepon_ibu                = mysqli_real_escape_string($conn, $_POST['telepon_ibu']);
+    $pendidikan_terakhir_ibu    = mysqli_real_escape_string($conn, $_POST['pendidikan_terakhir_ibu']);
+    $pekerjaan_ibu                = mysqli_real_escape_string($conn, $_POST['pekerjaan_ibu']);
+    $penghasilan_ibu            = mysqli_real_escape_string($conn, $_POST['penghasilan_ibu']);
+    $alamat_ibu                    = mysqli_real_escape_string($conn, $_POST['alamat_ibu']);
+    // Data Wali
+    $nama_wali                     = mysqli_real_escape_string($conn, $_POST['nama_wali']);
+    $status_wali                 = mysqli_real_escape_string($conn, $_POST['status_wali']);
+    $tanggal_lahir_wali         = mysqli_real_escape_string($conn, $_POST['tanggal_lahir_wali']);
+    $telepon_wali                = mysqli_real_escape_string($conn, $_POST['telepon_wali']);
+    $pendidikan_terakhir_wali    = mysqli_real_escape_string($conn, $_POST['pendidikan_terakhir_wali']);
+    $pekerjaan_wali                = mysqli_real_escape_string($conn, $_POST['pekerjaan_wali']);
+    $penghasilan_wali            = mysqli_real_escape_string($conn, $_POST['penghasilan_wali']);
+    $alamat_wali                = mysqli_real_escape_string($conn, $_POST['alamat_wali']);
+    $tgl_ubah                    = date('Y-m-d');
 
-		$query = mysqli_query($conn, "UPDATE orang_tua_wali SET Id_Identitas_Siswa = '$peserta',
+    $query = mysqli_query($conn, "UPDATE orang_tua_wali SET Id_Identitas_Siswa = '$peserta',
 																Nama_Ayah = '$nama_ayah',
 																Status_Ayah = '$status_ayah',
 																Tgl_Lahir_Ayah = '$tanggal_lahir_ayah',
@@ -149,11 +149,11 @@
 																Pekerjaan_Wali = '$pekerjaan_wali',
 																Penghasilan_Wali = '$penghasilan_wali',
 																Alamat_Wali = '$alamat_wali',
-																tgl_buat = '$tgl_buat'  
+																tgl_ubah = '$tgl_ubah'
 									  					WHERE Id_Orang_Tua_Wali = '$id' ") or die(mysqli_error($conn));
 
-		if($query) {
-			$_SESSION['alert'] = '<div class="alert alert-success alert-has-icon" id="alert">
+    if ($query) {
+        $_SESSION['alert'] = '<div class="alert alert-success alert-has-icon" id="alert">
 			                        <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
 			                        <div class="alert-body">
 			                          <button class="close" data-dismiss="alert">
@@ -163,9 +163,9 @@
 			                          Data berhasil diubah.
 			                        </div>
 			                      </div>';
-			header('Location: ../../view/ortu/tampilData.php');
-		} else {
-			$_SESSION['alert'] = '<div class="alert alert-danger alert-has-icon" id="alert">
+        header('Location: ../../view/ortu/tampilData.php');
+    } else {
+        $_SESSION['alert'] = '<div class="alert alert-danger alert-has-icon" id="alert">
 			                        <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
 			                        <div class="alert-body">
 			                          <button class="close" data-dismiss="alert">
@@ -175,18 +175,18 @@
 			                          Data gagal diubah.
 			                        </div>
 			                      </div>';
-			header('Location: ../../view/ortu/tampilData.php');
-		}
-	}
+        header('Location: ../../view/ortu/tampilData.php');
+    }
+}
 
-	// Hapus Data
-	if (isset($_GET['hapusData'])) {
-		$id = $_GET['hapusData'];
+// Hapus Data
+if (isset($_GET['hapusData'])) {
+    $id = $_GET['hapusData'];
 
-		$query = mysqli_query($conn, "DELETE FROM orang_tua_wali WHERE Id_Orang_Tua_Wali = $id");
+    $query = mysqli_query($conn, "DELETE FROM orang_tua_wali WHERE Id_Orang_Tua_Wali = $id");
 
-		if($query) {
-			$_SESSION['alert'] = '<div class="alert alert-success alert-has-icon" id="alert">
+    if ($query) {
+        $_SESSION['alert'] = '<div class="alert alert-success alert-has-icon" id="alert">
 			                        <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
 			                        <div class="alert-body">
 			                          <button class="close" data-dismiss="alert">
@@ -196,9 +196,9 @@
 			                          Data berhasil dihapus.
 			                        </div>
 			                      </div>';
-			header('Location: ../../view/ortu/tampilData.php');
-		} else {
-			$_SESSION['alert'] = '<div class="alert alert-danger alert-has-icon" id="alert">
+        header('Location: ../../view/ortu/tampilData.php');
+    } else {
+        $_SESSION['alert'] = '<div class="alert alert-danger alert-has-icon" id="alert">
 			                        <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
 			                        <div class="alert-body">
 			                          <button class="close" data-dismiss="alert">
@@ -208,8 +208,6 @@
 			                          Data gagal dihapus.
 			                        </div>
 			                      </div>';
-			header('Location: ../../view/ortu/tampilData.php');
-		}
-	}
-
-?>
+        header('Location: ../../view/ortu/tampilData.php');
+    }
+}
