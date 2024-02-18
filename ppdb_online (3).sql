@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Feb 2024 pada 07.22
+-- Waktu pembuatan: 18 Feb 2024 pada 20.54
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.10
 
@@ -59,6 +59,28 @@ CREATE TRIGGER `TambahAdministrasi` AFTER INSERT ON `administrasi` FOR EACH ROW 
 END
 $$
 DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `berita`
+--
+
+CREATE TABLE `berita` (
+  `idberita` int(11) NOT NULL,
+  `iduser` int(11) NOT NULL,
+  `judul_berita` varchar(255) NOT NULL,
+  `isi_berita` text NOT NULL,
+  `tanggal` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `berita`
+--
+
+INSERT INTO `berita` (`idberita`, `iduser`, `judul_berita`, `isi_berita`, `tanggal`) VALUES
+(2, 0, 'Pendafatarn', 'PPDB Dimuali Pada 14 Februari 2024', '2024-01-13'),
+(3, 0, 'tes', 'tes', '2024-02-19');
 
 -- --------------------------------------------------------
 
@@ -198,6 +220,12 @@ ALTER TABLE `administrasi`
   ADD KEY `id_identitas_siswa` (`id_identitas_siswa`);
 
 --
+-- Indeks untuk tabel `berita`
+--
+ALTER TABLE `berita`
+  ADD PRIMARY KEY (`idberita`);
+
+--
 -- Indeks untuk tabel `identitas_siswa`
 --
 ALTER TABLE `identitas_siswa`
@@ -228,6 +256,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `administrasi`
   MODIFY `id_administrasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT untuk tabel `berita`
+--
+ALTER TABLE `berita`
+  MODIFY `idberita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `identitas_siswa`
