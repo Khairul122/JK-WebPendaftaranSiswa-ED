@@ -99,7 +99,7 @@
                     <div class="row container">
                         <div class="col-md-6" style="font-size: 20px;">
                             <p style="border-style: double; text-align: center; width: 280px; padding: 5px;"><?php if ($row['status'] == NULL) {
-                                                                                                                    echo 'Belum Lunas';
+                                                                                                                    echo 'Belum Konfirmasi';
                                                                                                                 }
                                                                                                                 echo $row['status']; ?></p>
                         </div>
